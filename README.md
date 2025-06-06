@@ -1,249 +1,108 @@
-# Course Hub
-
-Welcome to the **Course Subscription Application**! This boilerplate application is designed to help you get started with building a simple course subscription application on the ServiceNow platform. It provides the foundational data model and basic configurations, allowing you to focus on implementing the required features and enhancing the application.
-
-## Table of Contents
-
-- [Introduction](#markdown-header-introduction)
-- [Prerequisites](#markdown-header-prerequisites)
-- [Getting Started](#markdown-header-getting-started)
-- [Application Overview](#markdown-header-application-overview)
-- [Navigating the Application](#markdown-header-navigating-the-application)
-- [Next Steps](#markdown-header-next-steps)
-- [Additional Resources](#markdown-header-additional-resources)
-- [Support](#markdown-header-support)
+# Course Subscription Application
 
 ## Introduction
 
-The Course Subscription Application allows learners to view available courses and subscribe to them. This boilerplate provides the essential components to help you implement features such as fetching course lists, subscribing to courses, and displaying subscribed courses.
+This project is a prototype of a **Course Subscription Application** developed using the **ServiceNow Platform**. It allows learners to browse available courses in a visually structured layout using UI Builder. The implementation focuses on **PRD01: Course Listing**, which is fully functional. The remaining subscription functionality (PRD02) is not completed, due to platform learning curve and other constraints.
 
-> The goal is to have workable simple version of application that involves ServiceNow in some way. We do not expect you to understand whole ServiceNow platform in couple of days. 
+**Repository**: https://github.com/roshanbist/coursehub-servicenow
 
-## Prerequisites
+## Features Implemented
 
-Before you begin, ensure you have the following:
+### PRD01: Course List ✅ **COMPLETED**
 
-- **ServiceNow Personal Developer Instance (PDI)**
-    - Sign up at [developer.servicenow.com](https://developer.servicenow.com/) if you don't have one.
-- **ServiceNow Studio Access**
-    - You will use Studio to import and manage the application.
-- **Git and Remote Repository**
-    - The repository is public; you should be able to clone it to your local machine and push it to the desired remote repository of your choice.
+**Functionality**: Displays a list of available courses with course details and a “Subscribe” button for each course.
+Sample data was inserted into the course and learner tables for UI demonstration purposes.
 
-## Getting Started
+- **Table Used**: `x_quo_coursehub_course`
+- **Displayed Fields**: Title, Description, Type (Online/Offline/Hybrid), Duration
+- **UI Components**:
+  - `now-layout-container` – Page layout
+  - `now-repeater` – Dynamically iterate through courses
+  - `now-card` – Display each course as a card
+  - `now-button` – Display "Subscribe" buttons
+  - `now-stylized-text` – Display the Description of course
+- **Data Resources**:
+  - `Look up multiple records` to fetch all course entries from the course table
 
-Follow these steps to set up the application in your ServiceNow instance.
+## User Interaction – Step-by-Step Explanation
 
-### 1. Set Up Your ServiceNow Developer Instance
+When a user accesses the Course Subscription application, they are presented with a simple and clear interface to explore available courses. Here's how they interact with the key feature implemented in this submission:
 
- **Sign Up for a PDI**
+1. **Access the Application**  
+   The learner logs in to the platform and navigates to the CourseHub experience using a web link (e.g., `/x/quo/qdx-course-hub/home`). This link opens the Course Listing page, which is the main interface built for this assignment.
 
-- Visit [developer.servicenow.com](https://developer.servicenow.com/) and create an account.
-- Request a Personal Developer Instance (PDI) and follow the instructions to activate it.
+2. **View the Course List (PRD01)**  
+   Upon loading the page, the learner sees a list of courses displayed in a proper format. Each course is shown inside a visual card layout, which includes the following details:
 
- **Access Your PDI**
+   - **Course Title**: The name of the course is shown as the main heading
+   - **Description**: A short summary that describes the course content
+   - **Type**: Indicates whether the course is Online, Offline, or Hybrid
+   - **Duration**: How long the course takes, shown in a readable format
 
-- Once your instance is ready, log in using the credentials provided.
+3. **Interact with Course Cards**  
+   Each course card includes a **"Subscribe"** button. Although this button does not yet perform any subscription action, it is designed to guide learners toward subscription.
 
-### 2. Clone the Application
+4. **Next Action (TODO)**  
+   Clicking the Subscribe button will open a confirmation window, allow the learner to confirm their subscription, and provide immediate feedback — such as showing a success message and changing the button to "Unsubscribe."
 
- **Obtain the Repository URL**
+## Unimplemented Parts & Reasoning
 
-- Get the HTTPS URL of this repository hosting the application.
-- Clone it to your local machine.
-- Create a remote repository on your desired provider (e.g., GitHub, GitLab).
-- Change the remote to point to your new repository, then push the code to it.
+### ❌ PRD02: Course Subscription Logic (Not Implemented)
 
- **Create Git Credentials in ServiceNow**
+The UI for subscription buttons exists, but the backend logic for creating subscriptions is not yet functional.
 
-- In your PDI, navigate to **Connections & Credentials > Credentials**.
-- Click **New** and select **Credential**.
-- Select **Basic Auth Credentials**.
-- Fill in the following:
+**Reasons for Incompletion**:
 
-    - **Name**: *Git Source Control Credential*
-    - **Username**: *Your username*
-    - **Password**: *Your app password or account password*
-- Save the credential.
+- Early-stage learning curve with data brokers, state parameters, and action chaining
+- Need to go through unfamiliar parts of the ServiceNow data resource framework
 
-**Import the Application via Studio**
-- Use the application navigator to go to **All > Studio**. DO NOT USE "ServiceNow Studio", use System Application > Studio
-- You can now import the application that you pushed to your remote repository. Follow the guide: [Import App into the PDI](https://developer.servicenow.com/dev.do#!/learn/learning-plans/quebec/new_to_servicenow/app_store_learnv2_devenvironment_quebec_importing_an_application_from_source_control).
+**Planned Implementation (Future)**:
 
-**Verify the Import**
-- Once the import is complete, you should see the application files in Studio.
-- Ensure there are no errors or conflicts.
+- Use "Create Record" data resource on `x_quo_coursehub_course_subscription`
+- Bind learner selection via current user reference
+- Add client-side condition to prevent duplicate subscriptions
+- Show success message on subscription
 
-## Application Overview
+## Setup and Installation
 
-### Data Model
+### Prerequisites
 
-The application consists of three main tables:
+1. ServiceNow Personal Developer Instance (PDI)
+2. Git access to repository
+3. Basic understanding of ServiceNow UI Builder
 
-1. **Course** (`x_quo_coursehub_course`)
-2. **Learner** (`x_quo_coursehub_learner`)
-3. **Course Subscription** (`x_quo_coursehub_course_subscription`)
+### Installation Steps
 
-### Tables and Fields
+1. Clone repository: `git clone https://github.com/roshanbist/coursehub-servicenow`
+2. Import application into ServiceNow Studio using Git integration
+3. Verify tables and data model import
+4. Access UI Builder and navigate to CourseHub experience
+5. Open Home page to view course listings
 
-All the tables come with default fields: `sys_id`, `created`, `created_by`, `updated`, `updated_by`.
+## Screenshots Reference
 
-#### Course Table
+All screenshots are located in the `/screenshots` folder:
 
-- **Label**: Course
-- **Name**: `x_quo_coursehub_course`
+- `prd01-01-course-listing.png` - Main course listing page showing all available courses
+- `prd01-02-course-details.png` - Detailed view of course information cards
+- `prd01-03-ui-builder-setup.png` - UI Builder configuration showing page structure
+- `prd01-04-data-resource-config.png` - Data resource configuration for course fetching
+- `prd01-05-component-layout.png` - Component layout and binding configuration
 
-**Fields**:
+## Challenges Encountered
 
-- **Title** (`title`): String (Max Length: 100, Mandatory)
-- **Description** (`description`): String (Max Length: 500)
-- **Type** (`type`): Choice (Options: Online, Offline, Hybrid)
-- **Duration** (`duration`): Duration (Days Hours:Minutes:Seconds)
+- PDI creation issue from servicenow end
+- new to servicenow and go through documentation each time
+- Platform-specific element identification
+- challenges in implementing custom styling for components
+- challenges in understanding the data resources flow and script
 
-#### Learner Table
+## Learning Outcomes
 
-- **Label**: Learner
-- **Name**: `x_quo_coursehub_learner`
+Through this assignment, I gained understanding of:
 
-**Fields**:
-
-- **User Account** (`user_account`): Reference to `sys_user` (Mandatory)
-- **Admission Date** (`admission_date`): Date/Time
-
-#### Course Subscription Table
-
-- **Label**: Course Subscription
-- **Name**: `x_quo_coursehub_course_subscription`
-
-**Fields**:
-
-- **Learner** (`learner`): Reference to `x_quo_coursehub_learner` (Mandatory)
-- **Course** (`course`): Reference to `x_quo_coursehub_course` (Mandatory)
-- **Subscription Date** (`subscription_date`): Date/Time (Defaults to current date/time)
-
-### Access Permission
-
-The following table outlines the access permissions for the roles **x_quo_coursehub.manager** and **x_quo_coursehub.user** across the application's tables.
-
-
-| **Table**                                           | **Permission** | **x_quo_coursehub.manager** | **x_quo_coursehub.user** |
-|-----------------------------------------------------|----------------|------------------------------|--------------------------|
-| **Course**<br>`x_quo_coursehub_course`              | **Create**     | Yes                          | No                       |
-|                                                     | **Read**       | Yes                          | Yes                      |
-|                                                     | **Update**     | Yes                          | No                       |
-|                                                     | **Delete**     | Yes                          | No                       |
-| **Learner**<br>`x_quo_coursehub_learner`            | **Create**     | Yes                          | Yes                      |
-|                                                     | **Read**       | Yes                          | Yes                      |
-|                                                     | **Update**     | Yes                          | Yes                      |
-|                                                     | **Delete**     | Yes                          | No                       |
-| **Course Subscription**<br>`x_quo_coursehub_course_subscription` | **Create** | Yes | Yes |
-|                                                     | **Read**       | Yes                          | Yes                      |
-|                                                     | **Update**     | Yes                          | Yes                      |
-|                                                     | **Delete**     | Yes                          | No                       |
-
-## Navigating the Application
-
-### Accessing the Application
-
-**Open the Application Navigator**:
-
-- In your ServiceNow instance, use the filter navigator on the left. Click the **"All"** menu item on the top navigation bar to open the Application Navigator.
-- You should find the **"CourseHub"** application menu.
-- **Courses** and **Learners** are listed under **"CourseHub"**.
-
-**Explore the Tables, Lists, and Forms**
-
-- Click on **"Course"** or **"Learners"**.
-- Create a few relevant records using the standard UI.
-
-
-## CourseHub Experience
-
-Now that you have the application set up, you can start implementing the required features. You should use servicenow [UI Builder (UIB)](https://www.servicenow.com/docs/csh?topicname=ui-builder-overview.html&version=latest) to build simple interface that works.
-
-> Follow the assignment instructions provided, focus on implementing features that you can.
-
-### Build UI Experience
-
-1. Using servicenow top navigation bar, Go to All > UI Builder
-2. Find and select existing Experience: Qdx Course Hub or Create new
-3. Start building using "Home" page or some other pages as per your design
-4. Modify and design the course hub as you wish using the building blocks available.
-
-> **Tips**: start by adding the Layout first, then build using the Components.
-
-### Key Ingredients
-
-The servicenow UI Builder (UIB) is WYSIWYG "low code" tool, it designed to deliver UI experiences for speed and scale. The "pro code" user can built their own custom component using Next Experience UI Framework, but that is out-of-scope. Focus on following:
-
-#### Next Experience Components
-
-Navigate to readily available [components portal](https://developer.servicenow.com/dev.do#!/reference/next-experience/components), on the side bar make sure to filter with "Yokohama" release and "Available in UIB". Explore the relevant component definition and find the configuration details for how to use within UI Builder.
-
-#### Data Binding
-
-The data binding is crucial for the components to be dynamic, the [data binding modal](https://www.servicenow.com/docs/csh?topicname=connect-data-components.html&version=latest) make it easy. You can find the information.
-
-#### Data Resources
-
-These building blocks are available under the "Data and Scripts", these are used to provide dynamic data to the components, find more information [here](https://www.servicenow.com/docs/csh?topicname=data-resources.html&version=latest). The data resources are sometime referred as Data Broker, one can create custom Data Broker for REST API, GraphQL, data Transform, and custom server-side script. We recommend to focus on data resources that is readily available:
-
-* Create Record
-* Look up a single record
-* Look up multiple records
-* Update Record
-* Delete Record
-* Delete Multiple Records
-
-#### Client State Parameters
-
-One way to think about UIB Client state parameters is state management solutions available for reactive JavaScript UI libraries available out there in wild, you can find more information from [here](https://www.servicenow.com/docs/csh?topicname=client-state-parameters.html&version=latest)
-
-#### Client Scripts
-
-It provides the scripting capabilities in UIB to customize interaction using JavaScript that connects client state through events, find the more information here (https://developer.servicenow.com/dev.do#!/learn/courses/yokohama/app_store_learnv2_uibuilder_yokohama_ui_builder/app_store_learnv2_uibuilder_yokohama_client_side_interactions_in_ui_builder/UCS_WhatAreClientScripts_yokohama).
-
-### UIB API Reference
-
-* [Api - UIB](https://www.servicenow.com/docs/csh?topicname=apiAPI.html&version=latest)
-* [Helpers - UIB](https://www.servicenow.com/docs/csh?topicname=helpersAPI.html&version=latest)
-
-### Need Comprehensive Course
-
-If you need a learning course on UI Builder, and want to invest your time. The servicenow [developer portal](https://developer.servicenow.com) have you covered. UIB [learning course](https://developer.servicenow.com/dev.do#!/learn/courses/yokohama/app_store_learnv2_uibuilder_yokohama_ui_builder) covers following topics:
-
-* Pages in UIB
-* Events in UIB
-* Client-side Interactions in UIB
-* Data Resources in UIB
-* Modals in UIB
-
-## Additional Resources
-
-- **ServiceNow Developer Site**: [developer.servicenow.com](https://developer.servicenow.com/)
-- **ServiceNow Documentation**:
-    - [Building Applications on the Now Platform](https://docs.servicenow.com/bundle/quebec-application-development/page/build/applications/concept/build-applications.html)
-    - [Tables and Data Management](https://docs.servicenow.com/bundle/quebec-platform-administration/page/administer/table-administration/concept/c_TableAdministration.html)
-    - [Pro-Code Development](https://docs.servicenow.com/bundle/quebec-application-development/page/build/applications/concept/building-pro-code-applications.html)
-    - [REST API Reference](https://developer.servicenow.com/dev.do#!/reference/api/quebec/rest)
-    - [UIB: Component config and repeater](https://www.servicenow.com/docs/csh?topicname=configure-comp-and-repeaters.html&version=latest)
-    - [UIB: Glossary](https://www.servicenow.com/docs/csh?topicname=ui-builder-glossary.html&version=latest)
-    - [UIB: Config data resource](https://www.servicenow.com/docs/csh?topicname=add-data-resources.html&version=latest)
-    - [Import Application from Git rep](https://docs.servicenow.com/csh?topicname=t_ImportAppFromSourceControl.html&version=latest)
-
-
-## Push Changes
-
-To commit and push your changes:
-
-1. Navigate to System Application > Studio in the application navigator
-2. Once in Studio, click on the Source Control menu in the top nav bar
-3. Select Commit Changes from the dropdown menu
-4. Enter a meaningful commit message describing your changes
-5. Select the artifact changes, and follow the steps in modal window.
-
----
-
-We hope this boilerplate helps you get started quickly. Good luck with your assignment, and we look forward to discussing your work in the interview!
-
----
+- ServiceNow UI Builder component architecture
+- Data resource configuration and binding
+- ServiceNow table relationships and data modeling
+- Next Experience component library usage
+- ServiceNow development workflow and Git integration
