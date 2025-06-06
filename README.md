@@ -83,7 +83,8 @@ The UI for subscription buttons exists, but the backend logic for creating subsc
 
 All screenshots are located in the `/screenshots` folder:
 
-- ![prd01-screenshot](screenshots/prd01-screenshot.PNG)
+- Main course listing page showing all available courses (prd01-screenshot)
+  ![prd01-screenshot](screenshots/prd01-screenshot.PNG)
 
 ## Challenges Encountered
 
