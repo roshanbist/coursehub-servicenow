@@ -83,8 +83,14 @@ The UI for subscription buttons exists, but the backend logic for creating subsc
 
 All screenshots are located in the `/screenshots` folder:
 
-- Main course listing page showing all available courses (prd01-screenshot)
-  ![prd01-screenshot](screenshots/prd01-screenshot.PNG)
+- **prd01-01-course-listing.png** : Main course listing page showing all available courses
+  ![prd01-01-course-listing.png](screenshots/prd01-01-course-listing.PNG)
+
+- **prd01-02-component-layout.png** : Component hierarchy in UI Builder for the course list page
+  ![prd01-02-component-layout.png](screenshots/prd01-02-component-layout.PNG)
+
+- **prd01-03-data-resource-courses-record.png** : Data Resource setup for fetching courses from the table
+  ![prd01-03-data-resource-courses-record.png](screenshots/prd01-03-data-resource-courses-record.PNG)
 
 ## Challenges Encountered
 
@@ -101,5 +107,4 @@ Through this assignment, I gained understanding of:
 - ServiceNow UI Builder component architecture
 - Data resource configuration and binding
 - ServiceNow table relationships and data modeling
-- Next Experience component library usage
 - ServiceNow development workflow and Git integration
