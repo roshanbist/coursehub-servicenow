@@ -611,7 +611,7 @@
                                                                                 "elementLabel": "SubscribeButton",
                                                                                 "eventMappings": [
                                                                                     {
-                                                                                        "eventMappingId": "ggcqeefERBEKijjgEGebbKoEiinI",
+                                                                                        "eventMappingId": "eoKwLvEZAUWfeeddAsPmiOySQyt",
                                                                                         "isConfiguration": false,
                                                                                         "offRowStorageId": null,
                                                                                         "sourceEventApiName": "sn_button.NOW_BUTTON#CLICKED",
@@ -628,28 +628,40 @@
                                                                                                 "clientScript": null,
                                                                                                 "conditional": null,
                                                                                                 "declarativeAction": null,
-                                                                                                "event": {
-                                                                                                    "apiName": "x_quo_coursehub.MODAL_SELECTED_RELAY_d98c0a0a83bde6107969ba29feaad301",
+                                                                                                "event": null,
+                                                                                                "operation": {
+                                                                                                    "dataBrokerId": "beda4252770300108d070d74c810618f",
+                                                                                                    "operationName": "EXECUTE",
+                                                                                                    "parentResourceId": "create_record_1",
                                                                                                     "payload": {
                                                                                                         "type": "JSON_LITERAL",
                                                                                                         "value": {
-                                                                                                            "bare": false,
-                                                                                                            "displayOptions": null,
-                                                                                                            "headerLabel": null,
-                                                                                                            "modalId": "[component-id$='modal_viewport_1']",
-                                                                                                            "preserveState": false,
-                                                                                                            "showModal": true,
-                                                                                                            "viewportElementId": null,
-                                                                                                            "viewportFields": null,
-                                                                                                            "viewportParams": null,
-                                                                                                            "viewportRoute": null
+                                                                                                            "table": "x_quo_coursehub_learner",
+                                                                                                            "templateFields": "",
+                                                                                                            "useSetDisplayValue": null
                                                                                                         }
-                                                                                                    },
-                                                                                                    "sysId": "7ee38a50c38a261042a4b1fdd4013101"
+                                                                                                    }
                                                                                                 },
-                                                                                                "operation": null,
-                                                                                                "targetId": "nhffSQPbpBUffUeeddAeePQCbQhDEr",
-                                                                                                "type": "EVENT"
+                                                                                                "targetId": "ccbueeddggfGaaAUEyjjyaaDlcceeddUMhjjw",
+                                                                                                "type": "DATABROKER_OP"
+                                                                                            },
+                                                                                            {
+                                                                                                "broker": null,
+                                                                                                "clientScript": null,
+                                                                                                "conditional": null,
+                                                                                                "declarativeAction": null,
+                                                                                                "event": null,
+                                                                                                "operation": {
+                                                                                                    "dataBrokerId": "b997a84053021010cbc2ddeeff7b1228",
+                                                                                                    "operationName": "REFRESH",
+                                                                                                    "parentResourceId": "look_up_multiple_records_1",
+                                                                                                    "payload": {
+                                                                                                        "type": "JSON_LITERAL",
+                                                                                                        "value": {}
+                                                                                                    }
+                                                                                                },
+                                                                                                "targetId": "aaaaeevvvddDEdggjjaYJEyfWGBiF",
+                                                                                                "type": "DATABROKER_OP"
                                                                                             }
                                                                                         ]
                                                                                     }
@@ -673,12 +685,14 @@
                                                                                         "value": null
                                                                                     },
                                                                                     "label": {
-                                                                                        "type": "TRANSLATION_LITERAL",
-                                                                                        "value": {
-                                                                                            "code": null,
-                                                                                            "comment": "",
-                                                                                            "message": "Subscribe"
-                                                                                        }
+                                                                                        "script": {
+                                                                                            "apiVersion": "2.0.0",
+                                                                                            "controllerElementId": null,
+                                                                                            "inlineScript": null,
+                                                                                            "scriptSysId": "ef8323e0c346a61042a4b1fdd40131b4",
+                                                                                            "target": null
+                                                                                        },
+                                                                                        "type": "CLIENT_TRANSFORM_SCRIPT"
                                                                                     },
                                                                                     "landmark": {
                                                                                         "type": "JSON_LITERAL",
@@ -1549,7 +1563,7 @@
             },
             "limit": {
                 "type": "JSON_LITERAL",
-                "value": "5"
+                "value": "100"
             },
             "offset": {
                 "type": "JSON_LITERAL",
@@ -1704,26 +1718,6 @@
     },
     {
         "definition": {
-            "id": "00cd9b8353211010cbc2ddeeff7b1205",
-            "type": "GRAPHQL"
-        },
-        "elementId": "delete_record_1",
-        "elementLabel": "DeleteSubscription",
-        "eventMappings": [],
-        "inputValues": {
-            "recordId": {
-                "type": "JSON_LITERAL",
-                "value": ""
-            },
-            "table": {
-                "type": "JSON_LITERAL",
-                "value": ""
-            }
-        },
-        "readEvaluationMode": "EXPLICIT"
-    },
-    {
-        "definition": {
             "id": "b997a84053021010cbc2ddeeff7b1228",
             "type": "COMPOSITE"
         },
@@ -1766,6 +1760,38 @@
             "table": {
                 "type": "JSON_LITERAL",
                 "value": "x_quo_coursehub_course_subscription"
+            }
+        },
+        "readEvaluationMode": "EAGER"
+    },
+    {
+        "definition": {
+            "id": "9664d48053461010cbc2ddeeff7b128e",
+            "type": "COMPOSITE"
+        },
+        "elementId": "look_up_a_single_record_1",
+        "elementLabel": "CurrentLearner",
+        "eventMappings": [],
+        "inputValues": {
+            "recordId": {
+                "type": "JSON_LITERAL",
+                "value": "284100fbc339621042a4b1fdd401317f"
+            },
+            "returnFieldMetadata": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "returnFields": {
+                "type": "JSON_LITERAL",
+                "value": "user_account"
+            },
+            "returnTableMetadata": {
+                "type": "JSON_LITERAL",
+                "value": false
+            },
+            "table": {
+                "type": "JSON_LITERAL",
+                "value": "x_quo_coursehub_learner"
             }
         },
         "readEvaluationMode": "EAGER"
@@ -1851,9 +1877,6 @@
   "message" : "Mode:",
   "comment" : ""
 }, {
-  "message" : "Subscribe",
-  "comment" : ""
-}, {
   "message" : "Subscribe and learn popular courses.",
   "comment" : ""
 }, {
@@ -1867,58 +1890,45 @@
         <state_persistence_config/>
         <state_properties>[
     {
-        "fieldType": "json",
-        "id": "KretI475aDETd9zsP96LN01Hb",
+        "id": "mg9xy47rdDU43C43DMGaYZKTbTg",
         "initialValue": {
             "type": "JSON_LITERAL",
-            "value": {}
+            "value": null
         },
-        "name": "selectedCourse",
-        "shape": "",
-        "valueType": "json"
-    },
-    {
-        "fieldType": "boolean",
-        "id": "J43kZLvMcBUYR43HIAT4Sbc7XU",
-        "initialValue": {
-            "type": "JSON_LITERAL",
-            "value": false
-        },
-        "name": "showModal",
-        "shape": "",
-        "valueType": "boolean"
-    },
-    {
-        "fieldType": "json",
-        "id": "zko3I47FqD0k439cgGZXPr4vai",
-        "initialValue": {
-            "type": "JSON_LITERAL",
-            "value": {}
-        },
-        "name": "subscriptionStates",
-        "shape": "",
-        "valueType": "json"
-    },
-    {
-        "fieldType": "json",
-        "id": "n3wEzf1jCkuw43KgPFbRmXOTA",
-        "initialValue": {
-            "type": "JSON_LITERAL",
-            "value": {}
-        },
-        "name": "availableLearners",
-        "shape": "",
-        "valueType": "json"
-    },
-    {
-        "id": "0OAmMwAaDknv9QgOmqUrkfGV",
-        "initialValue": {
-            "type": "JSON_LITERAL",
-            "value": ""
-        },
-        "name": "selectedLearner",
+        "name": "selectedCourseId",
         "shape": "",
         "valueType": "string"
+    },
+    {
+        "id": "nQhfbfPjDk369hYK430EYIxrB",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": null
+        },
+        "name": "selectedSubscriptionId",
+        "shape": "",
+        "valueType": "string"
+    },
+    {
+        "id": "k4OpDv2CBUID9YENWbzuETMa",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": null
+        },
+        "name": "selectedLearnerId",
+        "shape": "",
+        "valueType": "string"
+    },
+    {
+        "fieldType": "json",
+        "id": "v1qJ7wAaCUJd43OkNjmoaNdXL",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": {}
+        },
+        "name": "subcribedCourseIds",
+        "shape": "",
+        "valueType": "json"
     }
 ]</state_properties>
         <style_config>{}</style_config>
@@ -1926,14 +1936,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-05-30 12:01:39</sys_created_on>
         <sys_id>d98c0a0a83bde6107969ba29feaad301</sys_id>
-        <sys_mod_count>75</sys_mod_count>
+        <sys_mod_count>81</sys_mod_count>
         <sys_name>Home - default</sys_name>
         <sys_package display_value="CourseHub" source="x_quo_coursehub">d7affc501bf0ded0afce657a234bcb67</sys_package>
         <sys_policy/>
         <sys_scope display_value="CourseHub">d7affc501bf0ded0afce657a234bcb67</sys_scope>
         <sys_update_name>sys_ux_macroponent_d98c0a0a83bde6107969ba29feaad301</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-06-06 13:23:02</sys_updated_on>
+        <sys_updated_on>2025-06-07 14:41:06</sys_updated_on>
     </sys_ux_macroponent>
     <sys_translated_text action="delete_multiple" query="documentkey=d98c0a0a83bde6107969ba29feaad301"/>
 </record_update>

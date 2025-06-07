@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_client_script">
+    <sys_ux_client_script action="DELETE">
+        <controller_preset/>
+        <includes/>
+        <macroponent display_value="Home - default">d98c0a0a83bde6107969ba29feaad301</macroponent>
+        <name>onDataBinding</name>
+        <preset/>
+        <required_translations>[]</required_translations>
+        <script><![CDATA[/**
+* @param {params} params
+* @param {api} params.api
+* @param {any} params.event
+* @param {any} params.imports
+* @param {ApiHelpers} params.helpers
+*/
+function onDataBinding(context) {
+  const subscriptions = context.inputs.subscriptions || [];
+  const subscribedCourseIds = subscriptions.map(sub => sub.course.value);
+  const learnerId = context.inputs.currentLearner.record.sys_id;
+
+  return {
+    subscribedCourseIds,
+    selectedLearnerId: learnerId
+  };
+}]]></script>
+        <script_api_version>2.0.0</script_api_version>
+        <sys_class_name>sys_ux_client_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-06-07 13:19:40</sys_created_on>
+        <sys_id>af8323e0c346a61042a4b1fdd40131b4</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>onDataBinding</sys_name>
+        <sys_package display_value="CourseHub" source="x_quo_coursehub">d7affc501bf0ded0afce657a234bcb67</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CourseHub">d7affc501bf0ded0afce657a234bcb67</sys_scope>
+        <sys_update_name>sys_ux_client_script_af8323e0c346a61042a4b1fdd40131b4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-06-07 14:40:05</sys_updated_on>
+        <target>macroponent</target>
+        <type>default</type>
+    </sys_ux_client_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="CourseHub">d7affc501bf0ded0afce657a234bcb67</application>
+        <file_path/>
+        <instance_id>51809f491b4e3dd8c84543f4bd4bcbbf</instance_id>
+        <instance_name>dev192193</instance_name>
+        <name>sys_ux_client_script_af8323e0c346a61042a4b1fdd40131b4</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ux_client_script"&gt;&lt;sys_ux_client_script action="INSERT_OR_UPDATE"&gt;&lt;controller_preset/&gt;&lt;includes/&gt;&lt;macroponent display_value="Home - default"&gt;d98c0a0a83bde6107969ba29feaad301&lt;/macroponent&gt;&lt;name&gt;onDataBinding&lt;/name&gt;&lt;preset/&gt;&lt;required_translations&gt;[]&lt;/required_translations&gt;&lt;script&gt;&lt;![CDATA[/**
+* @param {params} params
+* @param {api} params.api
+* @param {any} params.event
+* @param {any} params.imports
+* @param {ApiHelpers} params.helpers
+*/
+function onDataBinding(context) {
+  const subscriptions = context.inputs.subscriptions || [];
+  const subscribedCourseIds = subscriptions.map(sub =&gt; sub.course.value);
+  const learnerId = context.inputs.currentLearner.record.sys_id;
+
+  return {
+    subscribedCourseIds,
+    selectedLearnerId: learnerId
+  };
+}]]&gt;&lt;/script&gt;&lt;script_api_version&gt;2.0.0&lt;/script_api_version&gt;&lt;sys_class_name&gt;sys_ux_client_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-06-07 13:19:40&lt;/sys_created_on&gt;&lt;sys_id&gt;af8323e0c346a61042a4b1fdd40131b4&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;onDataBinding&lt;/sys_name&gt;&lt;sys_package display_value="CourseHub" source="x_quo_coursehub"&gt;d7affc501bf0ded0afce657a234bcb67&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="CourseHub"&gt;d7affc501bf0ded0afce657a234bcb67&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ux_client_script_af8323e0c346a61042a4b1fdd40131b4&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-06-07 14:40:05&lt;/sys_updated_on&gt;&lt;target&gt;macroponent&lt;/target&gt;&lt;type&gt;default&lt;/type&gt;&lt;/sys_ux_client_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>165084048</payload_hash>
+        <record_name>onDataBinding</record_name>
+        <reverted_from/>
+        <source>d7a57f93c3b1221042a4b1fdd4013173</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-06-07 14:40:05</sys_created_on>
+        <sys_id>088d37e0c3c6a61042a4b1fdd4013190</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1974ad5a9200000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-06-07 14:40:05</sys_updated_on>
+        <type>UX Client Script</type>
+        <update_guid>4c8d37e081c6a61029a5e5dc50991d8f</update_guid>
+        <update_guid_history>4c8d37e081c6a61029a5e5dc50991d8f:165084048,461b2f2cc646a610689c05c56bf32805:1268807098</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-06-07 14:42:21</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_client_script">sys_ux_client_script</sys_db_object>
+        <sys_id>472a2d5a7a514ebcba30fb411cf68990</sys_id>
+        <sys_metadata>af8323e0c346a61042a4b1fdd40131b4</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>onDataBinding</sys_name>
+        <sys_package display_value="CourseHub" source="x_quo_coursehub">d7affc501bf0ded0afce657a234bcb67</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="CourseHub">d7affc501bf0ded0afce657a234bcb67</sys_scope>
+        <sys_scope_delete display_value="">000122c0f5d3422480b2ea6a41b8cf10</sys_scope_delete>
+        <sys_update_name>sys_ux_client_script_af8323e0c346a61042a4b1fdd40131b4</sys_update_name>
+        <sys_update_version display_value="sys_ux_client_script_af8323e0c346a61042a4b1fdd40131b4">088d37e0c3c6a61042a4b1fdd4013190</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-06-07 14:42:21</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
