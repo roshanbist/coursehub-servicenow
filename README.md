@@ -43,7 +43,7 @@ When a user accesses the Course Subscription application, they are presented wit
    Each course card includes a **"Subscribe"** button. Although this button does not yet perform any subscription action, it is designed to guide learners toward subscription.
 
 4. **Next Action (TODO)**  
-   Clicking the Subscribe button will open a confirmation window, allow the learner to confirm their subscription, and provide immediate feedback — such as showing a success message and changing the button to "Unsubscribe."
+   Clicking the Subscribe button will confirm their subscription, and provide immediate feedback — such as showing a success message and changing the button to "Unsubscribe."
 
 ## Unimplemented Parts & Reasoning
 
@@ -53,7 +53,7 @@ The UI for subscription buttons exists, but the backend logic for creating subsc
 
 **Reasons for Incompletion**:
 
-- Early-stage learning curve with data brokers, state parameters, and action chaining
+- Early-stage learning curve with data brokers, client state parameters, and scripts
 - Need to go through unfamiliar parts of the ServiceNow data resource framework
 
 **Planned Implementation (Future)**:
@@ -92,19 +92,10 @@ All screenshots are located in the `/screenshots` folder:
 - **prd01-03-data-resource-courses-record.png** : Data Resource setup for fetching courses from the table
   ![prd01-03-data-resource-courses-record.png](screenshots/prd01-03-data-resource-courses-record.PNG)
 
-## Challenges Encountered
+## Conclusion
 
-- PDI creation issue from servicenow end
-- new to servicenow and go through documentation each time
-- Platform-specific element identification
-- challenges in implementing custom styling for components
-- challenges in understanding the data resources flow and script
+This project was developed as part of a take-home technical assessment. The goal was to build a Course Subscription Application using the ServiceNow platform, focusing on user interface design and data modeling through UI Builder.
 
-## Learning Outcomes
+The assignment provided valuable hands-on experience in building low-code applications using ServiceNow's modern development tools. It also strengthened my understanding of component configuration, and dynamic data binding.
 
-Through this assignment, I gained understanding of:
-
-- ServiceNow UI Builder component architecture
-- Data resource configuration and binding
-- ServiceNow table relationships and data modeling
-- ServiceNow development workflow and Git integration
+I appreciate the opportunity to work on this challenge and look forward to expanding the remaining functionality in the future.
